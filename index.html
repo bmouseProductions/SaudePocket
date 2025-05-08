@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pré-inscrição Saúde Empreende Pocket</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-black">
+    <section class="pb-16 text-white" id="form">
+      <div class="w-full lg:w-2/3 mx-auto pt-8 px-4 lg:px-8">
+        <h2
+          class="fontNewBlackSemi font-semibold uppercase text-xl lg:text-4xl text-center mb-6"
+        >
+          Pré-inscrição Saúde Empreende Pocket
+        </h2>
+
+        <form action="#" method="POST" class="space-y-6" id="colunistaForm">
+          <!-- Campo de Input Personalizado -->
+          <div class="relative">
+            <input
+              type="text"
+              id="nome"
+              name="nome"
+              required
+              class="peer w-full border border-gray-400 rounded-xl px-4 py-3 bg-transparent focus:outline-none focus:ring-2 focus:ring-green-500"
+              placeholder="Nome Completo* "
+            />
+            <label
+              for="nome"
+              class="absolute left-4 top-3 text-gray-500 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:top-1 peer-focus:text-xs peer-focus:text-green-600"
+            ></label>
+          </div>
+
+          <!-- Outros campos seguindo o mesmo estilo -->
+          <div class="relative">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              class="peer w-full border border-gray-400 rounded-xl px-4 py-3 bg-transparent focus:outline-none focus:ring-2 focus:ring-green-500"
+              placeholder=" E-mail Profissional*"
+            />
+            <label
+              for="email"
+              class="absolute left-4 top-3 text-gray-500 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:top-1 peer-focus:text-xs peer-focus:text-green-600"
+            ></label>
+          </div>
+
+          <div class="relative">
+            <input
+              type="text"
+              id="telefone"
+              name="telefone"
+              class="peer w-full border border-gray-400 rounded-xl px-4 py-3 bg-transparent focus:outline-none focus:ring-2 focus:ring-green-500"
+              placeholder="Telefone/WhatsApp "
+            />
+            <label
+              for="telefone"
+              class="absolute left-4 top-3 text-gray-500 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:top-1 peer-focus:text-xs peer-focus:text-green-600"
+            ></label>
+          </div>
+
+          <!-- Botão estilizado -->
+          <div class="text-center pt-4">
+            <button
+              type="submit"
+              class="bg-green-600 hover:bg-green-700 text-white font-semibold uppercase rounded-xl px-8 py-3 transition duration-300"
+            >
+              Inscrever-se
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <script>
+      document.getElementById("colunistaForm").onsubmit = async function (e) {
+        e.preventDefault();
+
+        const formData = new FormData(e.target);
+        const data = Object.fromEntries(formData.entries());
+
+        try {
+          const response = await fetch(
+            "https://backendsaudepocket.onrender.com/mail/send",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(data),
+            }
+          );
+
+          if (response.ok) {
+            alert("Formulário enviado com sucesso!");
+          } else {
+            const errorData = await response.json();
+            alert(
+              "Erro ao enviar: " + (errorData.message || "Erro desconhecido")
+            );
+          }
+        } catch (error) {
+          alert("Erro de conexão: " + error.message);
+        }
+      };
+    </script>
+  </body>
+</html>
