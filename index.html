@@ -6,17 +6,20 @@
     <title>Pré-inscrição Saúde Empreende Pocket</title>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body class="bg-black">
-    <section class="pb-16 text-white" id="form">
+  <body class="bg-black text-white">
+    <!-- Logo centralizada no topo -->
+    <div class="w-full flex justify-center pt-8">
+      <img src="assets/logo-exp.svg" alt="Logo" class="h-16" />
+    </div>
+    <section class="pb-16" id="form">
       <div class="w-full lg:w-2/3 mx-auto pt-8 px-4 lg:px-8">
         <h2
-          class="fontNewBlackSemi font-semibold uppercase text-xl lg:text-4xl text-center mb-6"
+          class="font-semibold uppercase text-xl lg:text-4xl text-center mb-6"
         >
           Pré-inscrição Saúde Empreende Pocket
         </h2>
 
         <form action="#" method="POST" class="space-y-6" id="colunistaForm">
-          <!-- Campo de Input Personalizado -->
           <div class="relative">
             <input
               type="text"
@@ -26,13 +29,8 @@
               class="peer w-full border border-gray-400 rounded-xl px-4 py-3 bg-transparent focus:outline-none focus:ring-2 focus:ring-green-500"
               placeholder="Nome Completo* "
             />
-            <label
-              for="nome"
-              class="absolute left-4 top-3 text-gray-500 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:top-1 peer-focus:text-xs peer-focus:text-green-600"
-            ></label>
           </div>
 
-          <!-- Outros campos seguindo o mesmo estilo -->
           <div class="relative">
             <input
               type="email"
@@ -42,10 +40,6 @@
               class="peer w-full border border-gray-400 rounded-xl px-4 py-3 bg-transparent focus:outline-none focus:ring-2 focus:ring-green-500"
               placeholder=" E-mail Profissional*"
             />
-            <label
-              for="email"
-              class="absolute left-4 top-3 text-gray-500 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:top-1 peer-focus:text-xs peer-focus:text-green-600"
-            ></label>
           </div>
 
           <div class="relative">
@@ -56,13 +50,8 @@
               class="peer w-full border border-gray-400 rounded-xl px-4 py-3 bg-transparent focus:outline-none focus:ring-2 focus:ring-green-500"
               placeholder="Telefone/WhatsApp "
             />
-            <label
-              for="telefone"
-              class="absolute left-4 top-3 text-gray-500 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:top-1 peer-focus:text-xs peer-focus:text-green-600"
-            ></label>
           </div>
 
-          <!-- Botão estilizado -->
           <div class="text-center pt-4">
             <button
               type="submit"
@@ -72,8 +61,27 @@
             </button>
           </div>
         </form>
+
+        <!-- Imagem abaixo do formulário -->
+        <div class="pt-10 flex justify-center">
+          <img
+            src="assets/SEE-Pocket.webp"
+            alt="SEE Pocket"
+            class="max-w-xs w-full"
+          />
+        </div>
       </div>
     </section>
+
+    <!-- Rodapé -->
+    <footer class="py-6 mt-10">
+      <div
+        class="flex flex-col items-center justify-center gap-2 text-sm text-gray-400"
+      >
+        <img src="assets/bmouse-exp.svg" alt="BMouse Logo" class="h-10" />
+        <p>Copyright © 2025 - BMouse Production</p>
+      </div>
+    </footer>
 
     <script>
       document.getElementById("colunistaForm").onsubmit = async function (e) {
